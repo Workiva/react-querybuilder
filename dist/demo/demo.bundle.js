@@ -5328,7 +5328,7 @@ var Rule = function (_React$Component) {
         _react2.default.createElement(controls.operatorSelector, {
           field: field,
           title: translations.operators.title,
-          options: getOperators(field),
+          options: getOperators(dataType),
           value: operator,
           className: 'rule-operators ' + classNames.operators,
           handleOnChange: this.onOperatorChanged,

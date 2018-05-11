@@ -118,7 +118,7 @@ describe('<Rule />', () => {
         { name: '=', label: '=' },
         { name: '!=', label: '!=' },
       ]
-      schema.getOperators = field => {
+      schema.getOperators = dataType => {
         return expected_operators
       }
       const dom = shallow(<Rule {...props} />)
