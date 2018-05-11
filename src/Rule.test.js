@@ -23,7 +23,7 @@ describe('<Rule />', () => {
       fields: [],
       controls: controls,
       classNames: classNames,
-      getOperators: field => {
+      getOperators: dataType => {
         return []
       },
       onPropChange: (field, value, id) => {},
