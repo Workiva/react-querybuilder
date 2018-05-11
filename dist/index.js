@@ -3368,6 +3368,7 @@ var RuleGroup = function (_React$Component) {
             key: r.id,
             id: r.id,
             dataType: r.dataType,
+            result: r.result,
             field: r.field,
             value: r.value,
             operator: r.operator,
