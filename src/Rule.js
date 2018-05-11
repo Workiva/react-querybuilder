@@ -15,6 +15,7 @@ export default class Rule extends React.Component {
 
   render() {
     const {
+      result,
       dataType,
       field,
       operator,
@@ -32,6 +33,11 @@ export default class Rule extends React.Component {
     var level = getLevel(this.props.id)
     return (
       <div className={`rule ${classNames.rule}`}>
+        {React.createElement(controls.resultDisplay, {
+          value: result,
+          title: translations.resultDisplay.title,
+          className: `rule-remove ${classNames.resultDisplay}`,
+        })}
         {React.createElement(controls.dataTypeSelector, {
           title: translations.dataTypes.title,
           options: dataTypes,

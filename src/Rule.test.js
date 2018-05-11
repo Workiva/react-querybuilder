@@ -39,6 +39,9 @@ describe('<Rule />', () => {
       schema: schema,
       parentId: 'parentId',
       translations: {
+        resultDisplay: {
+          title: 'Result',
+        },
         dataTypes: {
           title: 'Data Types',
         },

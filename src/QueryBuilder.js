@@ -1,4 +1,9 @@
-import { ActionElement, ValueEditor, ValueSelector } from './controls/index'
+import {
+  ActionElement,
+  ResultDisplay,
+  ValueEditor,
+  ValueSelector,
+} from './controls/index'
 
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -36,6 +41,7 @@ export default class QueryBuilder extends React.Component {
         removeRuleAction: PropTypes.func,
         combinatorSelector: PropTypes.func,
         dataTypeSelector: PropTypes.func,
+        resultDisplay: PropTypes.func,
         fieldSelector: PropTypes.func,
         operatorSelector: PropTypes.func,
         valueEditor: PropTypes.func,
@@ -57,6 +63,9 @@ export default class QueryBuilder extends React.Component {
 
   static get defaultTranslations() {
     return {
+      resultDisplay: {
+        title: 'Result',
+      },
       dataTypes: {
         title: 'Data Types',
       },
@@ -147,6 +156,7 @@ export default class QueryBuilder extends React.Component {
       removeRuleAction: ActionElement,
       combinatorSelector: ValueSelector,
       dataTypeSelector: ValueSelector,
+      resultDisplay: ResultDisplay,
       fieldSelector: ValueSelector,
       operatorSelector: ValueSelector,
       valueEditor: ValueEditor,
