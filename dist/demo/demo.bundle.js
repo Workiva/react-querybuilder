@@ -5248,7 +5248,7 @@ var Rule = function (_React$Component) {
           title: translations.dataTypes.title,
           options: dataTypes,
           value: dataType,
-          className: 'rule-operators ' + classNames.dataTypes,
+          className: 'rule-datatypes ' + classNames.dataTypes,
           handleOnChange: this.onDataTypeChange,
           level: level
         }),
