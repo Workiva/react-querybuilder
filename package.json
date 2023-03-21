@@ -70,7 +70,7 @@
     "react-dom": "^16.2.0"
   },
   "scripts": {
-    "release": "mkdir -p ./releases && cd ./releases && npm pack ..",
+    "release": "rm -rf ./releases && mkdir -p ./releases && cd ./releases && PACK_NAME=$(npm pack ..) && mv \"${PACK_NAME}\" react-querybuilder.tgz",
     "start": "webpack-dev-server --env dev",
     "dist": "del dist; webpack --env prod",
     "publish:demo": "npm run dist && node gh-pages.publish.js",
