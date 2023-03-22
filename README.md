@@ -1,3 +1,12 @@
+# Releasing
+
+To release a new version of this package:
+
+1. Update the semver in the [package.json](./package.json)
+2. Run `nvm install && nvm use`
+3. Run `npm run release`
+4. Update the dependencies for all the `package.json` files in [oc-builder](https://github.com/OneCloudInc/oc-builder)
+
 # react-querybuilder
 
 [![npm](https://img.shields.io/npm/v/react-querybuilder.svg?maxAge=2592000)](https://www.npmjs.com/package/react-querybuilder)
@@ -5,11 +14,11 @@
 [![codecov.io](https://codecov.io/github/sapientglobalmarkets/react-querybuilder/coverage.svg?branch=master)](https://codecov.io/github/sapientglobalmarkets/react-querybuilder?branch=master)
 
 ## Credits
+
 This component was inspired by prior work from:
 
 - [jQuery QueryBuilder](http://querybuilder.js.org/)
 - [Angular QueryBuilder](https://github.com/mfauveau/angular-query-builder)
-
 
 ## Getting Started
 
@@ -18,6 +27,7 @@ This component was inspired by prior work from:
 ```shell
 npm install react-querybuilder --save
 ```
+
 ## Demo
 
 Open `<path-to-project>/node_modules/react-querybuilder/demo/index.html` in your browser.
@@ -26,38 +36,35 @@ OR
 
 [See live Demo](https://sapientglobalmarkets.github.io/react-querybuilder/).
 
-
 ## Usage
 
 ```jsx
-import QueryBuilder from 'react-querybuilder';
+import QueryBuilder from "react-querybuilder";
 
 const fields = [
-    {name: 'firstName', label: 'First Name'},
-    {name: 'lastName', label: 'Last Name'},
-    {name: 'age', label: 'Age'},
-    {name: 'address', label: 'Address'},
-    {name: 'phone', label: 'Phone'},
-    {name: 'email', label: 'Email'},
-    {name: 'twitter', label: 'Twitter'},
-    {name: 'isDev', label: 'Is a Developer?', value: false},
+  { name: "firstName", label: "First Name" },
+  { name: "lastName", label: "Last Name" },
+  { name: "age", label: "Age" },
+  { name: "address", label: "Address" },
+  { name: "phone", label: "Phone" },
+  { name: "email", label: "Email" },
+  { name: "twitter", label: "Twitter" },
+  { name: "isDev", label: "Is a Developer?", value: false },
 ];
 
-const dom = <QueryBuilder fields={fields}
-                          onQueryChange={logQuery}/>
-
+const dom = <QueryBuilder fields={fields} onQueryChange={logQuery} />;
 
 function logQuery(query) {
-    console.log(query);
+  console.log(query);
 }
-
 ```
 
 ## API
 
 `<QueryBuilder />` is the only top-level component exposed from this library. It supports the following properties:
 
-#### fields *(Required)*
+#### fields _(Required)_
+
 [ {name:String, label:String, id:ID} ]
 
 The array of fields that should be used. Each field should be an object with
@@ -66,28 +73,29 @@ The array of fields that should be used. Each field should be an object with
 
 The Id is optional, if you do not provide an id for a field then the name will be used
 
+#### operators _(Optional)_
 
-#### operators *(Optional)*
 [ {name:String, label:String} ]
 
 The array of operators that should be used. The default operators include:
 
 ```js
 [
-    {name: 'null', label: 'Is Null'},
-    {name: 'notNull', label: 'Is Not Null'},
-    {name: 'in', label: 'In'},
-    {name: 'notIn', label: 'Not In'},
-    {name: '=', label: '='},
-    {name: '!=', label: '!='},
-    {name: '<', label: '<'},
-    {name: '>', label: '>'},
-    {name: '<=', label: '<='},
-    {name: '>=', label: '>='},
-]
+  { name: "null", label: "Is Null" },
+  { name: "notNull", label: "Is Not Null" },
+  { name: "in", label: "In" },
+  { name: "notIn", label: "Not In" },
+  { name: "=", label: "=" },
+  { name: "!=", label: "!=" },
+  { name: "<", label: "<" },
+  { name: ">", label: ">" },
+  { name: "<=", label: "<=" },
+  { name: ">=", label: ">=" },
+];
 ```
 
-#### combinators *(Optional)*
+#### combinators _(Optional)_
+
 [ {name:String, label:String} ]
 
 The array of combinators that should be used for RuleGroups.
@@ -95,12 +103,13 @@ The default set includes:
 
 ```js
 [
-    {name: 'and', label: 'AND'},
-    {name: 'or', label: 'OR'},
-]
+  { name: "and", label: "AND" },
+  { name: "or", label: "OR" },
+];
 ```
 
-#### controlElements *(Optional)*
+#### controlElements _(Optional)_
+
 ```js
 React.PropTypes.shape({
   addGroupAction: React.PropTypes.func, //returns ReactClass
@@ -110,12 +119,13 @@ React.PropTypes.shape({
   combinatorSelector: React.PropTypes.func, //returns ReactClass
   fieldSelector: React.PropTypes.func, //returns ReactClass
   operatorSelector: React.PropTypes.func, //returns ReactClass
-  valueEditor: React.PropTypes.func //returns ReactClass
-})
+  valueEditor: React.PropTypes.func, //returns ReactClass
+});
 ```
 
 This is a custom controls object that allows you to override the control elements used.
 The following control overrides are supported:
+
 - `addGroupAction`: By default a `<button />` is used. The following props are passed:
 
   ```js
@@ -127,6 +137,7 @@ The following control overrides are supported:
     level: React.PropTypes.number //The level of the current group
   }
   ```
+
 - `removeGroupAction`: By default a `<button />` is used. The following props are passed:
 
   ```js
@@ -138,6 +149,7 @@ The following control overrides are supported:
     level: React.PropTypes.number //The level of the current group
   }
   ```
+
 - `addRuleAction`: By default a `<button />` is used. The following props are passed:
 
   ```js
@@ -149,6 +161,7 @@ The following control overrides are supported:
     level: React.PropTypes.number //The level of the current group
   }
   ```
+
 - `removeRuleAction`: By default a `<button />` is used. The following props are passed:
 
   ```js
@@ -159,6 +172,7 @@ The following control overrides are supported:
     level: React.PropTypes.number //The level of the current group
   }
   ```
+
 - `combinatorSelector`: By default a `<select />` is used. The following props are passed:
 
   ```js
@@ -171,6 +185,7 @@ The following control overrides are supported:
     level: React.PropTypes.number //The level of the current group
   }
   ```
+
 - `fieldSelector`: By default a `<select />` is used. The following props are passed:
 
   ```js
@@ -182,6 +197,7 @@ The following control overrides are supported:
     level: React.PropTypes.number //The level the group this rule belongs to
   }
   ```
+
 - `operatorSelector`: By default a `<select />` is used. The following props are passed:
 
   ```js
@@ -194,6 +210,7 @@ The following control overrides are supported:
     level: React.PropTypes.number //The level the group this rule belongs to
   }
   ```
+
 - `valueEditor`: By default a `<input type="text" />` is used. The following props are passed:
 
   ```js
@@ -206,13 +223,15 @@ The following control overrides are supported:
   }
   ```
 
-#### getOperators *(Optional)*
+#### getOperators _(Optional)_
+
 function(field):[]
 
 This is a callback function invoked to get the list of allowed operators
 for the given field
 
-#### onQueryChange *(Optional)*
+#### onQueryChange _(Optional)_
+
 function(queryJSON):void
 
 This is a notification that is invoked anytime the query configuration changes. The
@@ -246,7 +265,8 @@ query is provided as a JSON structure, as shown below:
 }
 ```
 
-#### controlClassnames *(Optional)*
+#### controlClassnames _(Optional)_
+
 This can be used to assign specific `CSS` classes to various controls
 that are created by the `<QueryBuilder />`. This is an object
 with the following properties:
@@ -270,7 +290,8 @@ with the following properties:
 }
 ```
 
-#### translations *(Optional)*
+#### translations _(Optional)_
+
 This can be used to override translatable texts applied to various controls
 that are created by the `<QueryBuilder />`. This is an object
 with the following properties:
@@ -307,7 +328,6 @@ with the following properties:
     }
 }
 ```
-
 
 ## Development
 

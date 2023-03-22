@@ -19,6 +19,9 @@
   "author": "Pavan Podila <pavan@pixelingene.com> (http://blog.pixelingene.com)",
   "license": "MIT",
   "homepage": "https://github.com/sapientglobalmarkets/react-querybuilder",
+  "engines": {
+    "node": "12"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -67,6 +70,7 @@
     "react-dom": "^16.2.0"
   },
   "scripts": {
+    "release": "mkdir -p ./releases && cd ./releases && npm pack ..",
     "start": "webpack-dev-server --env dev",
     "dist": "del dist; webpack --env prod",
     "publish:demo": "npm run dist && node gh-pages.publish.js",
