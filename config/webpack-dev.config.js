@@ -1,11 +1,12 @@
 'use strict';
 
 let HtmlPlugin = require('html-webpack-plugin');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const webpackCommon = require('./webpack-common.config');
 const path = require('path');
 
 module.exports = merge(webpackCommon, {
+    mode: 'development',
     entry: {
         demo: './demo/main.js'
     },
@@ -17,9 +18,6 @@ module.exports = merge(webpackCommon, {
     devtool: 'cheap-module-source-map',
     devServer: {
         historyApiFallback: true,
-        stats: {
-            maxModules: 0
-        }
     },
 
     plugins: [
