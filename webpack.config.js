@@ -10,5 +10,6 @@ module.exports = env => {
         dev: require('./config/webpack-dev.config')
     };
 
-    return config[env];
+    const key = env.prod ? 'prod' : 'dev';
+    return config[key];
 };

@@ -1,11 +1,12 @@
 'use strict';
 
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const webpackCommon = require('./webpack-common.config');
 const CopyPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
 module.exports = merge(webpackCommon, {
+  mode: 'production',
   entry: {
     index: './src/index.js'
   },
@@ -19,11 +20,11 @@ module.exports = merge(webpackCommon, {
     'react-dom': 'commonjs react-dom',
   },
 
-  devtool: 'none',
+  devtool: false,
 
   plugins: [
-    new CopyPlugin([{
-      from: './src/query-builder.scss',
-    }])
+    new CopyPlugin({
+      patterns: [{ from: './src/query-builder.scss' }]
+    })
   ]
 });

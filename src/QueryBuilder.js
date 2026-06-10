@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import RuleGroup from './RuleGroup'
 import cloneDeep from 'lodash/cloneDeep'
-import uniqueId from 'uuid/v4'
+import { v4 as uniqueId } from 'uuid'
 
 export default class QueryBuilder extends React.Component {
   static get defaultProps() {

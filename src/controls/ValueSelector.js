@@ -1,4 +1,4 @@
-import uniqueId from 'uuid/v4';
+import { v4 as uniqueId } from 'uuid';
 import React from 'react';
 import PropTypes from 'prop-types';
 
